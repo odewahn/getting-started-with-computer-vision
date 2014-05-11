@@ -15,7 +15,8 @@
     "book/filters/threshold.md",
     "book/tracking-part.html",
     "book/tracking/background_subtraction.md",
-    "book/tracking/brightest_point.md"
+    "book/tracking/brightest_point.md",
+    "book/tracking/contours_and_lines.md"
   ],
   "formats": {
     "pdf": {
