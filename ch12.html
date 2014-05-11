@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>Getting Started with Computer Vision</title>
+  <link href="theme/html/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/shared.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/syntax.css" media="all" rel="stylesheet" type="text/css"/>
+
+   <script type="text/javascript" src="theme/html/javascripts/jquery.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/bootstrap.min.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/disqus.js"> </script>
+
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+
+   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+</head>
+<body>
+	
+	
+ <a href="https://github.com/odewahn/devops-field-guide"><img style="z-index: 999999999; position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Discuss on GitHub"/></a>
+ 
+  <div class="navbar">
+    <div class="container">
+      <img style="margin:12px; height: 25px" src="theme/html/assets/logo-white.svg"/>
+      <ul class="nav pull-left">
+        <li id="dropdown-1"/>
+      </ul>
+    </div>
+    <div class="subhead">
+    </div>
+  </div>
+
+
+  <div class="container" id="main">
+	
+      <div class="row-fluid down40">	
+         <div class="span8">		
+            <section data-type="chapter" data-pdf-bookmark="Chapter 12. Track All the Things" id="idp1025392">
+<h1>Track All the Things</h1>
+
+<section data-type="sect1" data-pdf-bookmark="Background Subtraction" id="idp1026432">
+<h1>Background Subtraction</h1>
+
+<p><em>When processing video, we frequently want to separate people and objects that move (the foreground) from the fixed environment (the background). Separating foreground from  background is an important technique that enables many applications such as motion detection and object and person tracking. Here we learn how background subtraction can separate the foreground from the background in a way that is robust to changes in light and shifts in long-still objects.</em></p>
+<section data-type="sect2" data-pdf-bookmark="Video Script" id="idp1028272">
+<h2>Video Script</h2>
+
+<p>[demo of final version?]
+* Separating an image into foreground and background components </p>
+<p>[diff video]</p>
+<ul>
+<li>A naive way to </li>
+</ul>
+</section>
+<section data-type="sect2" data-pdf-bookmark="Video Summary" id="idp1031120">
+<h2>Video Summary</h2>
+
+<ul>
+<li>It’s hard to figure out which part of the image is the background</li>
+<li>Naive version: save the background and then do a diff with each frame. </li>
+<li>Need a clean background frame for reference. What happens if objects are permanently removed or shifted? What about as the light changes?</li>
+<li>More sophisticated models of the background: adapt as the background changes.</li>
+<li>We’ll use a background subtraction technique built-in to OpenCV that does just that.</li>
+<li>The original paper: <a href="http://www.ee.surrey.ac.uk/CVSSP/Publications/papers/KaewTraKulPong-AVBS01.pdf">An Improved Adaptive Background Mixture Model for Real- time Tracking with Shadow Detection</a>.</li>
+<li>Lessen the effect of small repetitive motions like moving trees and bushes.</li>
+<li>Adaptive Gaussian Mixture Model - explain each pixel in the scene as the sum of a series of colors that fall off in a Gaussian distribution. Background colors are ones which stay longer and more static. Moving objects change frequently because of the changing angles of their surfaces that reflect the light.</li>
+<li>When using background subtraction, we can choose how many frames affect our calculation of the background and how much effect each new frame should have.</li>
+<li>Background subtraction produces a binary image: white where frame is changing, black elsewhere</li>
+<li>We can then shape up what we find with dilate and erode to close holes in each blob</li>
+<li>And run contour finding on them so we have it as data.</li>
+<li>A next step would be to group together these clusters of contours and to add “temporal coherence”: to know how blobs move from frame to frame.</li>
+</ul>
+</section>
+<section data-type="sect2" data-pdf-bookmark="Quiz" id="idp1038464">
+<h2>Quiz</h2>
+
+<p>Q: In which of the following conditions is background subtraction superior to a simple diff: A) When you have very few frames to work with. B) When light conditions are changing. C) When you need to record the change in color within the image. D) All of the above.
+<br/><em>A: B</em></p>
+<p>Q: Which of these factors will not affect the performance of background subtraction: A) The amount of frames of history taken into account. B) The size of the input image. C) The number of moving objects in the scene. D) All affect it.
+<br/><em>A: C</em></p>
+<p>Q: True or false: background subtraction gives you the location of a particular object as it crosses the scene?
+<br/><em>A: False.</em></p>
+</section>
+<section data-type="sect2" data-pdf-bookmark="Code" id="idp1047008">
+<h2>Code</h2>
+
+<section data-type="sect3" data-pdf-bookmark="Important Functions" id="idp1044480">
+<h3>Important Functions</h3>
+
+<ul>
+<li><code>opencv.startBackgroundSubtraction()</code> - Setup the background subtraction process.</li>
+<li><code>opencv.updateBackground()</code> - Update the background based on the current image.</li>
+<li><code>opencv.dilate()</code> - Thicken the shapes in the current image.</li>
+<li><code>opencv.erode()</code> - Thin the shapes in the current image. When used in combination with <code>opencv.dilate()</code> this will close holes.</li>
+<li><code>opencv.findContours()</code> - Find contours based on the current gray image.</li>
+</ul>
+</section>
+<section data-type="sect3" data-pdf-bookmark="Browse the Code" id="idp1053072">
+<h3>Browse the Code</h3>
+
+</section>
+</section>
+</section>
+</section>
+         </div>
+         <div class="span4">
+	  <h2>Subscribe by email</h2>
+	  <div id="mc_embed_signup">
+	    <form action="http://herokuapp.us7.list-manage1.com/subscribe/post?u=5fec48c7e90ffefc48144196d&amp;id=7f2979d0d9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+	      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address"/>
+	      <br/>
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/>
+	      <div style="position: absolute; left: -5000px;">
+	        <input type="text" name="b_5fec48c7e90ffefc48144196d_7f2979d0d9" tabindex="-1" value=""/>
+	      </div>
+	    </form>
+	  </div>
+
+
+	   <h2>Key Themes</h2>
+              <nav data-type="toc" id="idp102448"/>
+	   <div class="navigation">
+	      <ul>
+	        <li class="prev"><a href="part02.html">Previous</a></li>
+	        <li class="next"><a href="ch13.html">Next</a></li>
+	      </ul>
+	   </div>	   
+	 </div>
+      </div>
+
+      <div class="row-fluid">
+	 <div class="span12">
+            <div id="disqus_thread"/>
+	 </div>
+      </div>
+
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span4">
+          <span class="logo"/>
+          <p>© 2014, O'Reilly Media, Inc.</p>
+          <p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        </div>
+        <div class="span4">
+          <ul>
+            <li>Legal</li>
+            <li><a href="/tos">Terms of Service</a></li>
+            <li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="span4">
+	   <a class="btn btn-medium btn-info" href="https://github.com/odewahn/devops-field-guide/issues" target="_blank">Feedback</a>
+	</div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>

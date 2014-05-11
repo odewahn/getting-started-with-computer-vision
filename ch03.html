@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>Getting Started with Computer Vision</title>
+  <link href="theme/html/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/shared.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/syntax.css" media="all" rel="stylesheet" type="text/css"/>
+
+   <script type="text/javascript" src="theme/html/javascripts/jquery.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/bootstrap.min.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/disqus.js"> </script>
+
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+
+   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+</head>
+<body>
+	
+	
+ <a href="https://github.com/odewahn/devops-field-guide"><img style="z-index: 999999999; position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Discuss on GitHub"/></a>
+ 
+  <div class="navbar">
+    <div class="container">
+      <img style="margin:12px; height: 25px" src="theme/html/assets/logo-white.svg"/>
+      <ul class="nav pull-left">
+        <li id="dropdown-1"/>
+      </ul>
+    </div>
+    <div class="subhead">
+    </div>
+  </div>
+
+
+  <div class="container" id="main">
+	
+      <div class="row-fluid down40">	
+         <div class="span8">		
+            <section data-type="chapter" data-pdf-bookmark="Chapter 3. World of Filters" id="idp602512">
+<h1>World of Filters</h1>
+
+<section data-type="sect1" data-pdf-bookmark="Basic Output" id="idp869008">
+<h1>Basic Output</h1>
+
+<p>Let’s start with the absolute basics. Here’s a sketch that loads an image file, passes it into OpenCV, and then displays the output. It’s structured like most of our OpenCV sketches will be. We create an OpenCV object, pass it the image, and then use it to do filtering, and show the results. See the inline comments for line-by-line details.</p>
+<script src="https://gist.github.com/atduskgreg/5904383/b04418c77a5ba2a9a78b67bc22497e9c7c361b13.js"> </script>
+
+<p>And here’s the result from running it.</p>
+<p><a href="http://www.flickr.com/photos/unavoidablegrain/9185436191/" title="Screen Shot 2013-07-01 at 5.36.48 PM by atduskgreg, on Flickr"><img src="http://farm4.staticflickr.com/3820/9185436191_34d40de569.jpg" width="346" height="500" alt="Screen Shot 2013-07-01 at 5.36.48 PM"/></a></p>
+<p>In order to display the results of our work with OpenCV, we call <code>opencv.getOutput()</code>. This function returns a <code>PImage</code> with the current state of the image we’re processing with OpenCV. Processing’s <code>image()</code> function can display this result just like any other <code>PImage</code>.</p>
+<p>Take note: OpenCV for Processing automatically converted the image to grayscale. It does this by default because a lot of OpenCV operations only work with grayscale images.</p>
+</section>
+</section>
+         </div>
+         <div class="span4">
+	  <h2>Subscribe by email</h2>
+	  <div id="mc_embed_signup">
+	    <form action="http://herokuapp.us7.list-manage1.com/subscribe/post?u=5fec48c7e90ffefc48144196d&amp;id=7f2979d0d9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+	      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address"/>
+	      <br/>
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/>
+	      <div style="position: absolute; left: -5000px;">
+	        <input type="text" name="b_5fec48c7e90ffefc48144196d_7f2979d0d9" tabindex="-1" value=""/>
+	      </div>
+	    </form>
+	  </div>
+
+
+	   <h2>Key Themes</h2>
+              <nav data-type="toc" id="idp102448"/>
+	   <div class="navigation">
+	      <ul>
+	        <li class="prev"><a href="ch02.html">Previous</a></li>
+	        <li class="next"><a href="ch04.html">Next</a></li>
+	      </ul>
+	   </div>	   
+	 </div>
+      </div>
+
+      <div class="row-fluid">
+	 <div class="span12">
+            <div id="disqus_thread"/>
+	 </div>
+      </div>
+
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span4">
+          <span class="logo"/>
+          <p>© 2014, O'Reilly Media, Inc.</p>
+          <p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        </div>
+        <div class="span4">
+          <ul>
+            <li>Legal</li>
+            <li><a href="/tos">Terms of Service</a></li>
+            <li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="span4">
+	   <a class="btn btn-medium btn-info" href="https://github.com/odewahn/devops-field-guide/issues" target="_blank">Feedback</a>
+	</div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>

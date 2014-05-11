@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>Getting Started with Computer Vision</title>
+  <link href="theme/html/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/shared.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/syntax.css" media="all" rel="stylesheet" type="text/css"/>
+
+   <script type="text/javascript" src="theme/html/javascripts/jquery.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/bootstrap.min.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/disqus.js"> </script>
+
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+
+   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+</head>
+<body>
+	
+	
+ <a href="https://github.com/odewahn/devops-field-guide"><img style="z-index: 999999999; position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Discuss on GitHub"/></a>
+ 
+  <div class="navbar">
+    <div class="container">
+      <img style="margin:12px; height: 25px" src="theme/html/assets/logo-white.svg"/>
+      <ul class="nav pull-left">
+        <li id="dropdown-1"/>
+      </ul>
+    </div>
+    <div class="subhead">
+    </div>
+  </div>
+
+
+  <div class="container" id="main">
+	
+      <div class="row-fluid down40">	
+         <div class="span8">		
+            <section data-type="chapter" data-pdf-bookmark="Chapter 13. Track All The Things" id="idp1054512">
+<h1>Track All The Things</h1>
+
+<section data-type="sect1" data-pdf-bookmark="Track the Brightest Point" id="idp1055280">
+<h1>Track the Brightest Point</h1>
+
+<p><em>Probably the single simplest way to track an object with OpenCV is based on brightness. Brightness tracking is highly sensitive to lighting conditions and other changes in the scene, but it can work effectively in situations where you have a lot of control over the environment. In this section, we’ll use OpenCV’s <code>max()</code> function to track the brightest point in an image. We’ll also see how a variation of brightness tracking, applied to the individual color channels of an image, can be used for a crude form of color tracking.</em></p>
+<iframe src="http://player.vimeo.com/video/69813654" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""> </iframe>
+
+<section data-type="sect2" data-pdf-bookmark="Video Summary" id="idp1057344">
+<h2>Video Summary</h2>
+
+<ul>
+<li>Brightness tracking is one of the simplest ways to track an object.</li>
+<li>It’s very fragile (affected by changing lighting conditions) so if you want to use it you’ll need to control the environment</li>
+<li>By default, our OpenCV object works off of a grayscale version of the input image.</li>
+<li>Grayscale pixel values range from 0 (for black) to 255 (for white).</li>
+<li>The pixel with the maximum value in this image will be the brightest point. (See the note about Luma as a measure of brightness below.)</li>
+<li>If multiple pixels share the same maximum value (usually all white or all black if the image itself is all black), then the top-leftmost pixel will be selected.</li>
+<li>We can make this dynamic by processing each new frame of a Capture object.</li>
+<li>This technique works for any grayscale image.</li>
+<li>OpenCV gives us the red, blue, and green channels of our image as individual grayscale images.</li>
+<li>Finding the max of these individual channels will find the reddest, greenest, and bluest channel respectively.</li>
+<li>This form of color tracking is very crude because of the limitations of RGB color space</li>
+<li>See the Color Tracking in HSV Color Space for a more robust technique for tracking color. </li>
+</ul>
+<section data-type="sect3" data-pdf-bookmark="Luma: A More Accurate Measure of Brightness" id="idp1069712">
+<h3>Luma: A More Accurate Measure of Brightness</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/Luma_%28video%29">Luma</a> is a representation of the brightness of a pixel that matches human perception more accurately than its gray value, which is a simple average of the reg, green, and blue components. Luma can be calculated as an unequal combination of the red, green and blue components of the pixel according to the following formula: 0.2126*R + 0.7152*G + 0.0722*B. To use Luma for brightness tracking with our OpenCV image, you could iterate through the image and calculate the Luma value for each pixel, which would be slow. Or, you could use OpenCV’s <code><a href="http://docs.opencv.org/java/org/opencv/imgproc/Imgproc.html#cvtColor">Imgproc.cvtColor()</a></code> function in concert with <code>opencv.getBufferColor()</code> to convert the image to the <a href="https://en.wikipedia.org/wiki/Lab_color_space">LAB color space</a>, which includes Luma as one of its three channels.</p>
+<p>This image demonstrates the comparison. The difference can be subtle. Click through to the larger size to make sure you see it. Look carefully at the right side of the image around the flashlight.</p>
+<p><a href="http://www.flickr.com/photos/unavoidablegrain/9228785034/" title="Gray vs Luma by atduskgreg, on Flickr"><img src="http://farm3.staticflickr.com/2829/9228785034_39c665d9e9.jpg" width="500" height="358" alt="Gray vs Luma"/></a></p>
+<p>The code for this example (showing how to access the Luma channel) is here: <a href="https://github.com/atduskgreg/OpenCVPro/blob/library_rename/examples/LumaVsGray/LumaVsGray.pde">LumaVsGray.pde</a>.</p>
+<p>In practice, the grayscale average of RGB is usually used due to its convenience.</p>
+</section>
+</section>
+<section data-type="sect2" data-pdf-bookmark="Code" id="idp1074096">
+<h2>Code</h2>
+
+<section data-type="sect3" data-pdf-bookmark="Important Functions" id="idp1076224">
+<h3>Important Functions</h3>
+
+<ul>
+<li><code>opencv.max()</code> - Find the brightest point in the current gray image.</li>
+<li><code>opencv.setBufferGray()</code> - Set the current gray image to another channel.</li>
+<li><code>opencv.getBufferG()</code> - Get the green channel of the current image. Useful for passing to <code>opencv.setBufferGray()</code>.</li>
+</ul>
+</section>
+<section data-type="sect3" data-pdf-bookmark="Browse the Code" id="idp1083136">
+<h3>Browse the Code</h3>
+
+<ol>
+<li>capture image and load it into opencv</li>
+<li>find and draw the max point</li>
+<li>Switch to Capture instead of a still image</li>
+<li>Use the green channel to track a green object</li>
+</ol>
+</section>
+</section>
+</section>
+</section>
+         </div>
+         <div class="span4">
+	  <h2>Subscribe by email</h2>
+	  <div id="mc_embed_signup">
+	    <form action="http://herokuapp.us7.list-manage1.com/subscribe/post?u=5fec48c7e90ffefc48144196d&amp;id=7f2979d0d9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+	      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address"/>
+	      <br/>
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/>
+	      <div style="position: absolute; left: -5000px;">
+	        <input type="text" name="b_5fec48c7e90ffefc48144196d_7f2979d0d9" tabindex="-1" value=""/>
+	      </div>
+	    </form>
+	  </div>
+
+
+	   <h2>Key Themes</h2>
+              <nav data-type="toc" id="idp102448"/>
+	   <div class="navigation">
+	      <ul>
+	        <li class="prev"><a href="ch12.html">Previous</a></li>
+	        <li class="next"><a href="ch14.html">Next</a></li>
+	      </ul>
+	   </div>	   
+	 </div>
+      </div>
+
+      <div class="row-fluid">
+	 <div class="span12">
+            <div id="disqus_thread"/>
+	 </div>
+      </div>
+
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span4">
+          <span class="logo"/>
+          <p>© 2014, O'Reilly Media, Inc.</p>
+          <p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        </div>
+        <div class="span4">
+          <ul>
+            <li>Legal</li>
+            <li><a href="/tos">Terms of Service</a></li>
+            <li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="span4">
+	   <a class="btn btn-medium btn-info" href="https://github.com/odewahn/devops-field-guide/issues" target="_blank">Feedback</a>
+	</div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>

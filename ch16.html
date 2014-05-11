@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>Getting Started with Computer Vision</title>
+  <link href="theme/html/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/shared.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/syntax.css" media="all" rel="stylesheet" type="text/css"/>
+
+   <script type="text/javascript" src="theme/html/javascripts/jquery.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/bootstrap.min.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/disqus.js"> </script>
+
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+
+   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+</head>
+<body>
+	
+	
+ <a href="https://github.com/odewahn/devops-field-guide"><img style="z-index: 999999999; position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Discuss on GitHub"/></a>
+ 
+  <div class="navbar">
+    <div class="container">
+      <img style="margin:12px; height: 25px" src="theme/html/assets/logo-white.svg"/>
+      <ul class="nav pull-left">
+        <li id="dropdown-1"/>
+      </ul>
+    </div>
+    <div class="subhead">
+    </div>
+  </div>
+
+
+  <div class="container" id="main">
+	
+      <div class="row-fluid down40">	
+         <div class="span8">		
+            <section data-type="chapter" data-pdf-bookmark="Chapter 16. Track All the Things" id="idp1156656">
+<h1>Track All the Things</h1>
+
+<section data-type="sect1" data-pdf-bookmark="Color Tracking in HSV Color Space" id="idp1157536">
+<h1>Color Tracking in HSV Color Space</h1>
+
+<p><em>One of the simplest ways to track an object with OpenCV is based on its color. However, the color space we use to represent the colors in an image can have a big effect on how easy it is to implement color tracking. In this section, we’ll prepare an image for color tracking by converting it to HSV color space and filtering it based on a range of Hues. After filtering, we’ll be able to easily track our object’s position by finding contours.</em></p>
+<iframe src="http://player.vimeo.com/video/69767694" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""> </iframe>
+
+<section data-type="sect2" data-pdf-bookmark="Video Summary" id="idp1165152">
+<h2>Video Summary</h2>
+
+<ul>
+<li>Color tracking is useful when you can control the color of the tracked-object or it already sticks out from the background.</li>
+<li>A “color space” describes how we represent a single color as a mix of different elements.</li>
+<li>The most common color space is RGB.</li>
+<li>RGB is the default color space in Processing.</li>
+<li>RGB is flawed for color tracking because changes in color that look small to the eye effect all three channels significantly.</li>
+<li>HSV is a more useful color space for tracking.</li>
+<li>HSV stands for Hue, Saturation, and Value.</li>
+<li>Hue is color. Saturation is intensity. Value is brightness.</li>
+<li>For color tracking we can just use the Hue channel.</li>
+<li>A Histogram is a graph that shows frequency of each color in an image.</li>
+<li>OpenCV provides that lets us filter an image based on a range of values.</li>
+<li>Filtering a colorful image by a range of hues reveals which hue corresponds to which color.</li>
+<li>Hue 0 is red and then it ranges up through orange, yellow, green, white (around 90), and up to blue.</li>
+<li>In OpenCV, hue ranges from 0-180.</li>
+<li>To track an object in live video we apply a range filter to the hue, selecting the color range of our object.</li>
+<li>Then we find contours in that filtered image.</li>
+<li>The contour with the largest area will be the object we want to track</li>
+<li>We can draw the bounding box of that contour.</li>
+<li>The center of the contour’s bounding box will be the object’s location.</li>
+</ul>
+</section>
+<section data-type="sect2" data-pdf-bookmark="Quiz" id="idp1174048">
+<h2>Quiz</h2>
+
+<p>Q: What is the default color space in Processing?
+<br/><em>A: RGB</em></p>
+<p>Q: Are there colors that can be represented in HSV color space that are impossible to represent in RGB color space?
+<br/><em>A: No</em></p>
+<p>Q: Using OpenCV’s scale, what color is represented by the following HSV values: 215, 50, 30?
+<br/><em>A: None. Hue ranges from 0-180.</em></p>
+</section>
+<section data-type="sect2" data-pdf-bookmark="Code" id="idp1176592">
+<h2>Code</h2>
+
+<p>The code sample below will walk you step-by-step through implementing Hue-based color tracking. </p>
+<section data-type="sect3" data-pdf-bookmark="Important Functions" id="idp1177680">
+<h3>Important Functions</h3>
+
+<ul>
+<li><code>opencv.useColor()</code> - Tell OpenCV which color space to use.</li>
+<li><code>opencv.getBufferH()</code> - Access the Hue channel of the image.</li>
+<li><code>opencv.setBufferGray()</code> - Set the gray channel of the image to the values of another channel.</li>
+<li><code>opencv.inRange()</code> - Filter the image based on a range of values.</li>
+<li><code>opencv.findContours()</code> - Find contours in the current image.</li>
+<li><code>contour.getBoundingBox()</code> - Get the rectangular bounding box around a particular contour.</li>
+</ul>
+</section>
+<section data-type="sect3" data-pdf-bookmark="Browse the Code" id="idp1185152">
+<h3>Browse the Code</h3>
+
+<script src="https://gist.github.com/atduskgreg/5937005.js"> </script>
+
+</section>
+</section>
+</section>
+</section>
+         </div>
+         <div class="span4">
+	  <h2>Subscribe by email</h2>
+	  <div id="mc_embed_signup">
+	    <form action="http://herokuapp.us7.list-manage1.com/subscribe/post?u=5fec48c7e90ffefc48144196d&amp;id=7f2979d0d9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+	      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address"/>
+	      <br/>
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/>
+	      <div style="position: absolute; left: -5000px;">
+	        <input type="text" name="b_5fec48c7e90ffefc48144196d_7f2979d0d9" tabindex="-1" value=""/>
+	      </div>
+	    </form>
+	  </div>
+
+
+	   <h2>Key Themes</h2>
+              <nav data-type="toc" id="idp102448"/>
+	   <div class="navigation">
+	      <ul>
+	        <li class="prev"><a href="ch15.html">Previous</a></li>
+	        <li class="next"/>
+	      </ul>
+	   </div>	   
+	 </div>
+      </div>
+
+      <div class="row-fluid">
+	 <div class="span12">
+            <div id="disqus_thread"/>
+	 </div>
+      </div>
+
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span4">
+          <span class="logo"/>
+          <p>© 2014, O'Reilly Media, Inc.</p>
+          <p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        </div>
+        <div class="span4">
+          <ul>
+            <li>Legal</li>
+            <li><a href="/tos">Terms of Service</a></li>
+            <li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="span4">
+	   <a class="btn btn-medium btn-info" href="https://github.com/odewahn/devops-field-guide/issues" target="_blank">Feedback</a>
+	</div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>

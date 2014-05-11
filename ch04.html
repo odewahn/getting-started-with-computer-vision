@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>Getting Started with Computer Vision</title>
+  <link href="theme/html/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/shared.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/syntax.css" media="all" rel="stylesheet" type="text/css"/>
+
+   <script type="text/javascript" src="theme/html/javascripts/jquery.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/bootstrap.min.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/disqus.js"> </script>
+
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+
+   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+</head>
+<body>
+	
+	
+ <a href="https://github.com/odewahn/devops-field-guide"><img style="z-index: 999999999; position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Discuss on GitHub"/></a>
+ 
+  <div class="navbar">
+    <div class="container">
+      <img style="margin:12px; height: 25px" src="theme/html/assets/logo-white.svg"/>
+      <ul class="nav pull-left">
+        <li id="dropdown-1"/>
+      </ul>
+    </div>
+    <div class="subhead">
+    </div>
+  </div>
+
+
+  <div class="container" id="main">
+	
+      <div class="row-fluid down40">	
+         <div class="span8">		
+            <section data-type="chapter" data-pdf-bookmark="Chapter 4. World of Filters" id="idp869264">
+<h1>World of Filters</h1>
+
+<section data-type="sect1" data-pdf-bookmark="Blur" id="idp877744">
+<h1>Blur</h1>
+
+<p><img src="http://gregborenstein.com/assets/opencv/blur_gray.gif" width="500px"/></p>
+<p>Blurring is a surprisingly useful operation in computer vision. It might seem like blurring an image would obscure exactly the information that you’re seeking to extract. To the contrary, blurring is similar to taking an average: it combines the value of each pixel with its neighbors. This is really useful for eliminating small variations or noise that might hurt the results of other operations like edge detection, contour finding, etc.</p>
+<section data-type="sect2" data-pdf-bookmark="Blur Strength and Direction - Convolutions and Kernels" id="idp880784">
+<h2>Blur Strength and Direction - Convolutions and Kernels</h2>
+
+<p>OpenCV’s <code>blur()</code> function uses a type of blur known as a “box blur”. In order to understand its effects -- and the various options available when applying a blur -- you’ll need to know a little bit about how OpenCV applies blurs and other image filters.</p>
+<p>OpenCV blurs an image by applying what’s called <a href="http://en.wikipedia.org/wiki/Kernel_(image_processing">a Kernel</a>). A Kernel tells you how to change the value of any given pixel by combining it with different amounts of the neighboring pixels. The kernel is applied to every pixel in the image one-by-one to produce the final image (this operation known as a <a href="http://en.wikipedia.org/wiki/Convolution">convolution</a>).</p>
+<p>Kernels are frequently represented with diagrams like this:</p>
+<p><a href="http://www.flickr.com/photos/unavoidablegrain/9311189796/" title="no_blur_kernel by atduskgreg, on Flickr"><img src="http://farm8.staticflickr.com/7410/9311189796_af6a4234ff.jpg" width="250" height="250" alt="no_blur_kernel"/></a></p>
+<p>The middle box represents the current pixel. The values in each box indicate what portion of each pixel should be used to produce the output. The case shown here is the most boring possible kernel. It uses all of the current pixel and none of the neighbors. Applying this kernel would leave the image unchanged.</p>
+<p>Here’s the most basic kernel for applying a box blur:</p>
+<p><a href="http://www.flickr.com/photos/unavoidablegrain/9308406751/" title="box_blur_1 by atduskgreg, on Flickr"><img src="http://farm8.staticflickr.com/7360/9308406751_743f0403e8.jpg" width="250" height="250" alt="box_blur_1"/></a></p>
+<p>This kernel makes the pixel into an average of itself and each of the eight neighboring pixels. In other words, each of the nine pixels in the kernel contribute 1/9th of the final value.</p>
+<p>We describe this as a kernel size of one since it includes one pixel in each direction away from the current pixel. If we wanted to blur the image more, we could expand the size of our kernel, adding in more adjacent pixels.</p>
+<p>Here’s a kernel for a 2-pixel box blur:</p>
+<p><a href="http://www.flickr.com/photos/unavoidablegrain/9311189812/" title="box_blur_2 by atduskgreg, on Flickr"><img src="http://farm6.staticflickr.com/5328/9311189812_5453efcec8.jpg" width="250" height="250" alt="box_blur_2"/></a></p>
+<p>Expanding to a 2-pixel radius results in a kernel that covers 25 pixels. Hence, each pixel contributes 1/25th of our final value.</p>
+<p>The GIF at the top of this page showed a blur with a 10-pixel kernel. Here’s what a blur with a 50-pixel radius kernel looks like: </p>
+<p><img src="http://gregborenstein.com/assets/opencv/blur_more.gif" width="500px"/></p>
+<p>In addition to kernels that mix all the pixels equally, we can use other kernels that have different effects. For example, we could construct a kernel that only mixed-in the pixels on the same row as the current pixel like so:</p>
+<p><a href="http://www.flickr.com/photos/unavoidablegrain/9311189846/" title="horizontal_blur by atduskgreg, on Flickr"><img src="http://farm3.staticflickr.com/2830/9311189846_8a36612889.jpg" width="250" height="250" alt="horizontal_blur"/></a></p>
+<p>The result would be a horizontal blur like this:</p>
+<p><img src="http://gregborenstein.com/assets/opencv/blur_horizontal.gif" width="500px"/></p>
+<p>And likewise, we could do the same thing in the vertical direction with this kernel:</p>
+<p><a href="http://www.flickr.com/photos/unavoidablegrain/9308406767/" title="vertical_blur by atduskgreg, on Flickr"><img src="http://farm6.staticflickr.com/5533/9308406767_1eb8f3c1a0.jpg" width="250" height="250" alt="vertical_blur"/></a></p>
+<p>producing something like this:</p>
+<p><img src="http://gregborenstein.com/assets/opencv/blur_vertical.gif" width="500px"/></p>
+</section>
+<section data-type="sect2" data-pdf-bookmark="Color Images" id="idp881728">
+<h2>Color Images</h2>
+
+<p>It’s also worth noting that, unlike some other filters, <code>blur()</code> can be applied to color images:</p>
+<p><img src="http://gregborenstein.com/assets/opencv/blur_color.gif" width="500px"/></p>
+</section>
+<section data-type="sect2" data-pdf-bookmark="Parameters" id="idp910096">
+<h2>Parameters</h2>
+
+<p>OpenCV for Processing’s <code>blur()</code> function has two different forms. Passing a single argument applies a simple box blur to the image with a kernel size determined by the argument you pass in.</p>
+<pre data-type="programlisting">opencv.blur(10);</pre>
+<p>To blur an image vertically or horizontally, you need to create a non-square kernel. The second form of <code>blur()</code> takes two arguments: one for the size of the kernel in the x- and y-dimensions.</p>
+<pre data-type="programlisting">opencv.blur(5, 1);</pre>
+<p>would apply a horizontal blur with the kernel we showed above: five pixels wide, all on the same row.</p>
+<pre data-type="programlisting">opencv.blur(1,5);</pre>
+<p>would apply a vertical blur: one pixel wide and five tall, just like we saw in the vertical kernel.</p>
+<p>Neither argument to this function can be zero, or an error will be raised. How can you construct a kernel that takes up zero rows or zero columns?</p>
+</section>
+<section data-type="sect2" data-pdf-bookmark="Related Functions" id="idp916448">
+<h2>Related Functions</h2>
+
+<ul>
+<li><a href="https://github.com/atduskgreg/opencv-processing-book/blob/master/book/filters/dilate_erode.md">dilate()</a></li>
+<li><a href="https://github.com/atduskgreg/opencv-processing-book/blob/master/book/filters/dilate_erode.md">erode()</a></li>
+</ul>
+</section>
+</section>
+</section>
+         </div>
+         <div class="span4">
+	  <h2>Subscribe by email</h2>
+	  <div id="mc_embed_signup">
+	    <form action="http://herokuapp.us7.list-manage1.com/subscribe/post?u=5fec48c7e90ffefc48144196d&amp;id=7f2979d0d9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+	      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address"/>
+	      <br/>
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/>
+	      <div style="position: absolute; left: -5000px;">
+	        <input type="text" name="b_5fec48c7e90ffefc48144196d_7f2979d0d9" tabindex="-1" value=""/>
+	      </div>
+	    </form>
+	  </div>
+
+
+	   <h2>Key Themes</h2>
+              <nav data-type="toc" id="idp102448"/>
+	   <div class="navigation">
+	      <ul>
+	        <li class="prev"><a href="ch03.html">Previous</a></li>
+	        <li class="next"><a href="ch05.html">Next</a></li>
+	      </ul>
+	   </div>	   
+	 </div>
+      </div>
+
+      <div class="row-fluid">
+	 <div class="span12">
+            <div id="disqus_thread"/>
+	 </div>
+      </div>
+
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span4">
+          <span class="logo"/>
+          <p>© 2014, O'Reilly Media, Inc.</p>
+          <p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        </div>
+        <div class="span4">
+          <ul>
+            <li>Legal</li>
+            <li><a href="/tos">Terms of Service</a></li>
+            <li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="span4">
+	   <a class="btn btn-medium btn-info" href="https://github.com/odewahn/devops-field-guide/issues" target="_blank">Feedback</a>
+	</div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>

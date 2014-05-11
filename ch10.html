@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>Getting Started with Computer Vision</title>
+  <link href="theme/html/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/shared.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="theme/html/stylesheets/syntax.css" media="all" rel="stylesheet" type="text/css"/>
+
+   <script type="text/javascript" src="theme/html/javascripts/jquery.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/bootstrap.min.js"> </script>
+   <script type="text/javascript" src="theme/html/javascripts/disqus.js"> </script>
+
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+
+   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+</head>
+<body>
+	
+	
+ <a href="https://github.com/odewahn/devops-field-guide"><img style="z-index: 999999999; position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Discuss on GitHub"/></a>
+ 
+  <div class="navbar">
+    <div class="container">
+      <img style="margin:12px; height: 25px" src="theme/html/assets/logo-white.svg"/>
+      <ul class="nav pull-left">
+        <li id="dropdown-1"/>
+      </ul>
+    </div>
+    <div class="subhead">
+    </div>
+  </div>
+
+
+  <div class="container" id="main">
+	
+      <div class="row-fluid down40">	
+         <div class="span8">		
+            <section data-type="chapter" data-pdf-bookmark="Chapter 10. World of Filters" id="idp994192">
+<h1>World of Filters</h1>
+
+<section data-type="sect1" data-pdf-bookmark="Region of Interest" id="idp994960">
+<h1>Region of Interest</h1>
+
+<p><img src="http://gregborenstein.com/assets/opencv/region_of_interest.gif" width="400px"/></p>
+<p>When filtering images, sometimes we don’t want to apply our filters to the entire image. Sometimes we’d rather select a particular area of the image just filter it. Maybe we only care about a feature if it appears in a particular spot. Or maybe we’re running filtering operations that will have different results depending on their input (like we just saw above with histogram equalization).</p>
+<p>OpenCV lets us select a Region of Interest (ROI) in order to do just that. After we set our ROI, subsequent filters will only apply to that area. In the GIF above you can see our threshold filter applied just to the area around the actors face.</p>
+<section data-type="sect2" data-pdf-bookmark="Combined with Histogram Equalization" id="idp1003584">
+<h2>Combined with Histogram Equalization</h2>
+
+<p><img src="http://gregborenstein.com/assets/opencv/roi_histogram.gif" width="400px"/></p>
+<p>As we saw, the effects of histogram equalization depend on the range of grays in the image being processed. Our original frame scans have a wide range of gray values and therefore the filter had little effect. But, if we select the right Region of Interest, histogram equalization can really help us bring out the sprocket holes.</p>
+<p>In the GIF above, I’ve selected a small square on the right as an ROI. This area captures the edge of the frame and one of the sprocket holes. Unlike our earlier attempt on the whole image, running histogram equalization on just this area has a dramatic effect. It significantly darkens the edges of the sprocket hole making it much easier to detect.</p>
+<p>Using an ROI like this, makes our image filters work a little bit more like our eyes, which are constantly refocusing and re-adjusting to different objects and light conditions in front of us.</p>
+</section>
+<section data-type="sect2" data-pdf-bookmark="Parameters" id="idp1000784">
+<h2>Parameters</h2>
+
+<p>A Region of Interest is a rectangular area of the image we select to exclusively receive OpenCV operations. Hence, the arguments to <code>setROI()</code> mirror those to <code>rect()</code>, the Processing function for drawing rectangles: x, y, width, height.</p>
+<pre data-type="programlisting">opencv.setROI(400,250,150,150);
+opencv.threshold(50);</pre>
+<p><em>Note: there’s also a corresponding <code>opencv.releaseROI()</code> function that ends the use of the Region of Interest. After calling it, further OpenCV functions will affect the entire image.</em></p>
+</section>
+</section>
+</section>
+         </div>
+         <div class="span4">
+	  <h2>Subscribe by email</h2>
+	  <div id="mc_embed_signup">
+	    <form action="http://herokuapp.us7.list-manage1.com/subscribe/post?u=5fec48c7e90ffefc48144196d&amp;id=7f2979d0d9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+	      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address"/>
+	      <br/>
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/>
+	      <div style="position: absolute; left: -5000px;">
+	        <input type="text" name="b_5fec48c7e90ffefc48144196d_7f2979d0d9" tabindex="-1" value=""/>
+	      </div>
+	    </form>
+	  </div>
+
+
+	   <h2>Key Themes</h2>
+              <nav data-type="toc" id="idp102448"/>
+	   <div class="navigation">
+	      <ul>
+	        <li class="prev"><a href="ch09.html">Previous</a></li>
+	        <li class="next"><a href="ch11.html">Next</a></li>
+	      </ul>
+	   </div>	   
+	 </div>
+      </div>
+
+      <div class="row-fluid">
+	 <div class="span12">
+            <div id="disqus_thread"/>
+	 </div>
+      </div>
+
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span4">
+          <span class="logo"/>
+          <p>© 2014, O'Reilly Media, Inc.</p>
+          <p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        </div>
+        <div class="span4">
+          <ul>
+            <li>Legal</li>
+            <li><a href="/tos">Terms of Service</a></li>
+            <li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="span4">
+	   <a class="btn btn-medium btn-info" href="https://github.com/odewahn/devops-field-guide/issues" target="_blank">Feedback</a>
+	</div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>
