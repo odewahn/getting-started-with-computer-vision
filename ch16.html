@@ -37,16 +37,16 @@
 	
       <div class="row-fluid down40">	
          <div class="span8">		
-            <section data-type="chapter" data-pdf-bookmark="Chapter 16. Track All the Things" id="idp1156656">
+            <section data-type="chapter" data-pdf-bookmark="Chapter 16. Track All the Things" id="idp674528">
 <h1>Track All the Things</h1>
 
-<section data-type="sect1" data-pdf-bookmark="Color Tracking in HSV Color Space" id="idp1157536">
+<section data-type="sect1" data-pdf-bookmark="Color Tracking in HSV Color Space" id="idp675408">
 <h1>Color Tracking in HSV Color Space</h1>
 
 <p><em>One of the simplest ways to track an object with OpenCV is based on its color. However, the color space we use to represent the colors in an image can have a big effect on how easy it is to implement color tracking. In this section, we’ll prepare an image for color tracking by converting it to HSV color space and filtering it based on a range of Hues. After filtering, we’ll be able to easily track our object’s position by finding contours.</em></p>
 <iframe src="http://player.vimeo.com/video/69767694" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""> </iframe>
 
-<section data-type="sect2" data-pdf-bookmark="Video Summary" id="idp1165152">
+<section data-type="sect2" data-pdf-bookmark="Video Summary" id="idp683024">
 <h2>Video Summary</h2>
 
 <ul>
@@ -71,7 +71,7 @@
 <li>The center of the contour’s bounding box will be the object’s location.</li>
 </ul>
 </section>
-<section data-type="sect2" data-pdf-bookmark="Quiz" id="idp1174048">
+<section data-type="sect2" data-pdf-bookmark="Quiz" id="idp688592">
 <h2>Quiz</h2>
 
 <p>Q: What is the default color space in Processing?
@@ -81,11 +81,11 @@
 <p>Q: Using OpenCV’s scale, what color is represented by the following HSV values: 215, 50, 30?
 <br/><em>A: None. Hue ranges from 0-180.</em></p>
 </section>
-<section data-type="sect2" data-pdf-bookmark="Code" id="idp1176592">
+<section data-type="sect2" data-pdf-bookmark="Code" id="idp696240">
 <h2>Code</h2>
 
 <p>The code sample below will walk you step-by-step through implementing Hue-based color tracking. </p>
-<section data-type="sect3" data-pdf-bookmark="Important Functions" id="idp1177680">
+<section data-type="sect3" data-pdf-bookmark="Important Functions" id="idp696896">
 <h3>Important Functions</h3>
 
 <ul>
@@ -97,7 +97,7 @@
 <li><code>contour.getBoundingBox()</code> - Get the rectangular bounding box around a particular contour.</li>
 </ul>
 </section>
-<section data-type="sect3" data-pdf-bookmark="Browse the Code" id="idp1185152">
+<section data-type="sect3" data-pdf-bookmark="Browse the Code" id="idp703136">
 <h3>Browse the Code</h3>
 
 <script src="https://gist.github.com/atduskgreg/5937005.js"> </script>
@@ -122,7 +122,176 @@
 
 
 	   <h2>Key Themes</h2>
-              <nav data-type="toc" id="idp102448"/>
+              <nav data-type="toc" id="idp88192"><ol><li data-type="sect1"><a href="#idp4080">Introduction</a><ol>
+
+
+
+<li data-type="sect1"><a href="#idm2129264">World of Filters</a></li>
+<li data-type="sect1"><a href="#idp68736">Calibrate</a></li>
+<li data-type="sect1"><a href="#idp75152">Track All The Things</a></li>
+<li data-type="sect1"><a href="#idp77856">The Shape of Things</a></li>
+<li data-type="sect1"><a href="#idp356832">Training Program</a></li>
+<li data-type="sect1"><a href="#idp360208">Projects</a></li>
+</ol></li><li data-type="chapter"><a href="ch01.html#idp365088">Getting Started with Computer Vision</a><ol>
+
+
+
+
+
+<li data-type="sect1"><a href="ch01.html#idp372304">Contributions Welcome</a></li>
+<li data-type="sect1"><a href="ch01.html#idp370832">Format</a></li>
+</ol></li><li data-type="part"><a href="part01.html#idp375632">Filters</a></li><li data-type="chapter"><a href="ch02.html#idp378224">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch02.html#idp379424">Adaptive Threshold</a></li>
+<li data-type="sect1"><a href="ch02.html#idp380400">Related Functions</a></li>
+</ol></li><li data-type="chapter"><a href="ch03.html#idp385504">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch03.html#idp386272">Basic Output</a></li>
+</ol></li><li data-type="chapter"><a href="ch04.html#idp390304">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch04.html#idp395376">Blur</a><ol>
+
+
+
+
+<li data-type="sect2"><a href="ch04.html#idp404512">Blur Strength and Direction - Convolutions and Kernels</a></li>
+<li data-type="sect2"><a href="ch04.html#idp405456">Color Images</a></li>
+<li data-type="sect2"><a href="ch04.html#idp427696">Parameters</a></li>
+<li data-type="sect2"><a href="ch04.html#idp433936">Related Functions</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch05.html#idp438496">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch05.html#idp439440">Brightness and Contrast</a></li>
+</ol></li><li data-type="chapter"><a href="ch06.html#idp440704">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch06.html#idp441744">Dilate and Erode</a></li>
+</ol></li><li data-type="chapter"><a href="ch07.html#idp442160">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch07.html#idp460272">Edge Detection</a><ol>
+
+
+
+<li data-type="sect2"><a href="ch07.html#idp454640">Canny Edge Detection</a></li>
+<li data-type="sect2"><a href="ch07.html#idp456400">Sobel Edge Detection</a></li>
+<li data-type="sect2"><a href="ch07.html#idp468464">Scharr Edge Detection</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch08.html#idp469520">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch08.html#idp474624">Histogram Equalization</a></li>
+</ol></li><li data-type="chapter"><a href="ch09.html#idp491968">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch09.html#idp483232">In Range</a><ol>
+
+
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch09.html#idp500016">Use with Color Images and the Hue Channel</a></li>
+<li data-type="sect2"><a href="ch09.html#idp501296">Parameters</a></li>
+<li data-type="sect2"><a href="ch09.html#idp505392">Related Material</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch10.html#idp512192">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch10.html#idp513040">Region of Interest</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch10.html#idp521456">Combined with Histogram Equalization</a></li>
+<li data-type="sect2"><a href="ch10.html#idp525584">Parameters</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch11.html#idp527184">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch11.html#idp524080">Threshold</a><ol>
+
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch11.html#idp535552">Related Functions</a></li>
+<li data-type="sect2"><a href="ch11.html#idp536720">Parameters</a></li>
+<li data-type="sect2"><a href="ch11.html#idp539904">Code</a></li>
+</ol></li>
+</ol></li><li data-type="part"><a href="part02.html#idp541856">Tracking</a></li><li data-type="chapter"><a href="ch12.html#idp543376">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch12.html#idp544384">Background Subtraction</a><ol>
+
+
+
+<li data-type="sect2"><a href="ch12.html#idp546224">Video Script</a></li>
+<li data-type="sect2"><a href="ch12.html#idp549072">Video Summary</a></li>
+<li data-type="sect2"><a href="ch12.html#idp550800">Quiz</a></li>
+<li data-type="sect2"><a href="ch12.html#idp565232">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch13.html#idp572000">Track All The Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch13.html#idp572880">Track the Brightest Point</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch13.html#idp575216">Video Summary</a></li>
+<li data-type="sect2"><a href="ch13.html#idp593520">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch14.html#idp604304">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch14.html#idp605936">Finding Contours and Lines</a><ol>
+
+
+<li data-type="sect2"><a href="ch14.html#idp606784">Video Script</a></li>
+<li data-type="sect2"><a href="ch14.html#idp609584">Video Summary</a></li>
+<li data-type="sect2"><a href="ch14.html#idp610800">Quiz</a></li>
+<li data-type="sect2"><a href="ch14.html#idp612304">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch15.html#idp620304">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch15.html#idp621280">Face Detection</a><ol>
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch15.html#idp624816">Video Summary</a></li>
+<li data-type="sect2"><a href="ch15.html#idp626096">The Politics of Face Detection</a></li>
+<li data-type="sect2"><a href="ch15.html#idp643600">Quiz</a></li>
+<li data-type="sect2"><a href="ch15.html#idp657184">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch16.html#idp674528">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch16.html#idp675408">Color Tracking in HSV Color Space</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch16.html#idp683024">Video Summary</a></li>
+<li data-type="sect2"><a href="ch16.html#idp688592">Quiz</a></li>
+<li data-type="sect2"><a href="ch16.html#idp696240">Code</a></li>
+</ol></li>
+</ol></li></ol></nav>
 	   <div class="navigation">
 	      <ul>
 	        <li class="prev"><a href="ch15.html">Previous</a></li>

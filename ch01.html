@@ -37,18 +37,18 @@
 	
       <div class="row-fluid down40">	
          <div class="span8">		
-            <section data-type="chapter" data-pdf-bookmark="Chapter 1. Getting Started with Computer Vision" id="idm800">
+            <section data-type="chapter" data-pdf-bookmark="Chapter 1. Getting Started with Computer Vision" id="idp365088">
 <h1>Getting Started with Computer Vision</h1>
 
 <p>This book aspires to provide an easy entry point for creative experimentation with computer vision. It introduces the code and concepts necessary to build computer vision projects with the <a href="http://processing.org">Processing</a> creative coding environment and <a href="http://opencv.org">OpenCV</a>, the definitive open source computer vision library. It is designed to be accessible to a beginner audience, but also to instill the fundamental concepts of the field, enabling readers to not just follow recipes, but build their own projects.</p>
 <p>This book is being developed in parallel with <a href="http://github.com/atduskgreg/opencv-processing">OpenCV for Processing</a>, a Processing library that provides access to OpenCV. All of its code examples use that OpenCV for Processing and it acts as the definitive documentation for that library.</p>
 <p><em>Getting Started with Computer Vision</em> is an in-progress community project begun in May of 2013. It is generously supported by <a href="http://oreill.com">O’Reilly Media</a> and will be published for public consumption by them. It’s text is available freely here under a Creative Commons license.</p>
-<section data-type="sect1" data-pdf-bookmark="Contributions Welcome" id="idm727216">
+<section data-type="sect1" data-pdf-bookmark="Contributions Welcome" id="idp372304">
 <h1>Contributions Welcome</h1>
 
 <p><em>Getting Started with Computer Vision</em> is currently highly incomplete but under rapid development. Suggestions, contributions, corrections, and pull requests are highly welcome. If you’re looking for places to help, check out <a href="https://github.com/atduskgreg/opencv-processing-book/blob/master/book/toc.md">the proposed table of contents</a> Contributions are especially welcome in the form of examples, particularly in the area of camera calibration and machine learning.</p>
 </section>
-<section data-type="sect1" data-pdf-bookmark="Format" id="idm1524416">
+<section data-type="sect1" data-pdf-bookmark="Format" id="idp370832">
 <h1>Format</h1>
 
 <p>This book is organized to be useful both as reference and as tutorial. Each page introduces its topic in a manner that should stand alone, providing links to other relevant pages that may be required as prerequisites. The overall order of the book is designed to lead a beginner through the material in a sensible and useful way if read linearly.</p>
@@ -71,7 +71,176 @@
 
 
 	   <h2>Key Themes</h2>
-              <nav data-type="toc" id="idp102448"/>
+              <nav data-type="toc" id="idp88192"><ol><li data-type="sect1"><a href="#idp4080">Introduction</a><ol>
+
+
+
+<li data-type="sect1"><a href="#idm2129264">World of Filters</a></li>
+<li data-type="sect1"><a href="#idp68736">Calibrate</a></li>
+<li data-type="sect1"><a href="#idp75152">Track All The Things</a></li>
+<li data-type="sect1"><a href="#idp77856">The Shape of Things</a></li>
+<li data-type="sect1"><a href="#idp356832">Training Program</a></li>
+<li data-type="sect1"><a href="#idp360208">Projects</a></li>
+</ol></li><li data-type="chapter"><a href="ch01.html#idp365088">Getting Started with Computer Vision</a><ol>
+
+
+
+
+
+<li data-type="sect1"><a href="ch01.html#idp372304">Contributions Welcome</a></li>
+<li data-type="sect1"><a href="ch01.html#idp370832">Format</a></li>
+</ol></li><li data-type="part"><a href="part01.html#idp375632">Filters</a></li><li data-type="chapter"><a href="ch02.html#idp378224">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch02.html#idp379424">Adaptive Threshold</a></li>
+<li data-type="sect1"><a href="ch02.html#idp380400">Related Functions</a></li>
+</ol></li><li data-type="chapter"><a href="ch03.html#idp385504">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch03.html#idp386272">Basic Output</a></li>
+</ol></li><li data-type="chapter"><a href="ch04.html#idp390304">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch04.html#idp395376">Blur</a><ol>
+
+
+
+
+<li data-type="sect2"><a href="ch04.html#idp404512">Blur Strength and Direction - Convolutions and Kernels</a></li>
+<li data-type="sect2"><a href="ch04.html#idp405456">Color Images</a></li>
+<li data-type="sect2"><a href="ch04.html#idp427696">Parameters</a></li>
+<li data-type="sect2"><a href="ch04.html#idp433936">Related Functions</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch05.html#idp438496">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch05.html#idp439440">Brightness and Contrast</a></li>
+</ol></li><li data-type="chapter"><a href="ch06.html#idp440704">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch06.html#idp441744">Dilate and Erode</a></li>
+</ol></li><li data-type="chapter"><a href="ch07.html#idp442160">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch07.html#idp460272">Edge Detection</a><ol>
+
+
+
+<li data-type="sect2"><a href="ch07.html#idp454640">Canny Edge Detection</a></li>
+<li data-type="sect2"><a href="ch07.html#idp456400">Sobel Edge Detection</a></li>
+<li data-type="sect2"><a href="ch07.html#idp468464">Scharr Edge Detection</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch08.html#idp469520">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch08.html#idp474624">Histogram Equalization</a></li>
+</ol></li><li data-type="chapter"><a href="ch09.html#idp491968">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch09.html#idp483232">In Range</a><ol>
+
+
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch09.html#idp500016">Use with Color Images and the Hue Channel</a></li>
+<li data-type="sect2"><a href="ch09.html#idp501296">Parameters</a></li>
+<li data-type="sect2"><a href="ch09.html#idp505392">Related Material</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch10.html#idp512192">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch10.html#idp513040">Region of Interest</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch10.html#idp521456">Combined with Histogram Equalization</a></li>
+<li data-type="sect2"><a href="ch10.html#idp525584">Parameters</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch11.html#idp527184">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch11.html#idp524080">Threshold</a><ol>
+
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch11.html#idp535552">Related Functions</a></li>
+<li data-type="sect2"><a href="ch11.html#idp536720">Parameters</a></li>
+<li data-type="sect2"><a href="ch11.html#idp539904">Code</a></li>
+</ol></li>
+</ol></li><li data-type="part"><a href="part02.html#idp541856">Tracking</a></li><li data-type="chapter"><a href="ch12.html#idp543376">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch12.html#idp544384">Background Subtraction</a><ol>
+
+
+
+<li data-type="sect2"><a href="ch12.html#idp546224">Video Script</a></li>
+<li data-type="sect2"><a href="ch12.html#idp549072">Video Summary</a></li>
+<li data-type="sect2"><a href="ch12.html#idp550800">Quiz</a></li>
+<li data-type="sect2"><a href="ch12.html#idp565232">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch13.html#idp572000">Track All The Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch13.html#idp572880">Track the Brightest Point</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch13.html#idp575216">Video Summary</a></li>
+<li data-type="sect2"><a href="ch13.html#idp593520">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch14.html#idp604304">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch14.html#idp605936">Finding Contours and Lines</a><ol>
+
+
+<li data-type="sect2"><a href="ch14.html#idp606784">Video Script</a></li>
+<li data-type="sect2"><a href="ch14.html#idp609584">Video Summary</a></li>
+<li data-type="sect2"><a href="ch14.html#idp610800">Quiz</a></li>
+<li data-type="sect2"><a href="ch14.html#idp612304">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch15.html#idp620304">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch15.html#idp621280">Face Detection</a><ol>
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch15.html#idp624816">Video Summary</a></li>
+<li data-type="sect2"><a href="ch15.html#idp626096">The Politics of Face Detection</a></li>
+<li data-type="sect2"><a href="ch15.html#idp643600">Quiz</a></li>
+<li data-type="sect2"><a href="ch15.html#idp657184">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch16.html#idp674528">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch16.html#idp675408">Color Tracking in HSV Color Space</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch16.html#idp683024">Video Summary</a></li>
+<li data-type="sect2"><a href="ch16.html#idp688592">Quiz</a></li>
+<li data-type="sect2"><a href="ch16.html#idp696240">Code</a></li>
+</ol></li>
+</ol></li></ol></nav>
 	   <div class="navigation">
 	      <ul>
 	        <li class="prev"/>

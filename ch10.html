@@ -37,16 +37,16 @@
 	
       <div class="row-fluid down40">	
          <div class="span8">		
-            <section data-type="chapter" data-pdf-bookmark="Chapter 10. World of Filters" id="idp994192">
+            <section data-type="chapter" data-pdf-bookmark="Chapter 10. World of Filters" id="idp512192">
 <h1>World of Filters</h1>
 
-<section data-type="sect1" data-pdf-bookmark="Region of Interest" id="idp994960">
+<section data-type="sect1" data-pdf-bookmark="Region of Interest" id="idp513040">
 <h1>Region of Interest</h1>
 
 <p><img src="http://gregborenstein.com/assets/opencv/region_of_interest.gif" width="400px"/></p>
 <p>When filtering images, sometimes we don’t want to apply our filters to the entire image. Sometimes we’d rather select a particular area of the image just filter it. Maybe we only care about a feature if it appears in a particular spot. Or maybe we’re running filtering operations that will have different results depending on their input (like we just saw above with histogram equalization).</p>
 <p>OpenCV lets us select a Region of Interest (ROI) in order to do just that. After we set our ROI, subsequent filters will only apply to that area. In the GIF above you can see our threshold filter applied just to the area around the actors face.</p>
-<section data-type="sect2" data-pdf-bookmark="Combined with Histogram Equalization" id="idp1003584">
+<section data-type="sect2" data-pdf-bookmark="Combined with Histogram Equalization" id="idp521456">
 <h2>Combined with Histogram Equalization</h2>
 
 <p><img src="http://gregborenstein.com/assets/opencv/roi_histogram.gif" width="400px"/></p>
@@ -54,7 +54,7 @@
 <p>In the GIF above, I’ve selected a small square on the right as an ROI. This area captures the edge of the frame and one of the sprocket holes. Unlike our earlier attempt on the whole image, running histogram equalization on just this area has a dramatic effect. It significantly darkens the edges of the sprocket hole making it much easier to detect.</p>
 <p>Using an ROI like this, makes our image filters work a little bit more like our eyes, which are constantly refocusing and re-adjusting to different objects and light conditions in front of us.</p>
 </section>
-<section data-type="sect2" data-pdf-bookmark="Parameters" id="idp1000784">
+<section data-type="sect2" data-pdf-bookmark="Parameters" id="idp525584">
 <h2>Parameters</h2>
 
 <p>A Region of Interest is a rectangular area of the image we select to exclusively receive OpenCV operations. Hence, the arguments to <code>setROI()</code> mirror those to <code>rect()</code>, the Processing function for drawing rectangles: x, y, width, height.</p>
@@ -80,7 +80,176 @@ opencv.threshold(50);</pre>
 
 
 	   <h2>Key Themes</h2>
-              <nav data-type="toc" id="idp102448"/>
+              <nav data-type="toc" id="idp88192"><ol><li data-type="sect1"><a href="#idp4080">Introduction</a><ol>
+
+
+
+<li data-type="sect1"><a href="#idm2129264">World of Filters</a></li>
+<li data-type="sect1"><a href="#idp68736">Calibrate</a></li>
+<li data-type="sect1"><a href="#idp75152">Track All The Things</a></li>
+<li data-type="sect1"><a href="#idp77856">The Shape of Things</a></li>
+<li data-type="sect1"><a href="#idp356832">Training Program</a></li>
+<li data-type="sect1"><a href="#idp360208">Projects</a></li>
+</ol></li><li data-type="chapter"><a href="ch01.html#idp365088">Getting Started with Computer Vision</a><ol>
+
+
+
+
+
+<li data-type="sect1"><a href="ch01.html#idp372304">Contributions Welcome</a></li>
+<li data-type="sect1"><a href="ch01.html#idp370832">Format</a></li>
+</ol></li><li data-type="part"><a href="part01.html#idp375632">Filters</a></li><li data-type="chapter"><a href="ch02.html#idp378224">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch02.html#idp379424">Adaptive Threshold</a></li>
+<li data-type="sect1"><a href="ch02.html#idp380400">Related Functions</a></li>
+</ol></li><li data-type="chapter"><a href="ch03.html#idp385504">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch03.html#idp386272">Basic Output</a></li>
+</ol></li><li data-type="chapter"><a href="ch04.html#idp390304">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch04.html#idp395376">Blur</a><ol>
+
+
+
+
+<li data-type="sect2"><a href="ch04.html#idp404512">Blur Strength and Direction - Convolutions and Kernels</a></li>
+<li data-type="sect2"><a href="ch04.html#idp405456">Color Images</a></li>
+<li data-type="sect2"><a href="ch04.html#idp427696">Parameters</a></li>
+<li data-type="sect2"><a href="ch04.html#idp433936">Related Functions</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch05.html#idp438496">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch05.html#idp439440">Brightness and Contrast</a></li>
+</ol></li><li data-type="chapter"><a href="ch06.html#idp440704">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch06.html#idp441744">Dilate and Erode</a></li>
+</ol></li><li data-type="chapter"><a href="ch07.html#idp442160">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch07.html#idp460272">Edge Detection</a><ol>
+
+
+
+<li data-type="sect2"><a href="ch07.html#idp454640">Canny Edge Detection</a></li>
+<li data-type="sect2"><a href="ch07.html#idp456400">Sobel Edge Detection</a></li>
+<li data-type="sect2"><a href="ch07.html#idp468464">Scharr Edge Detection</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch08.html#idp469520">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch08.html#idp474624">Histogram Equalization</a></li>
+</ol></li><li data-type="chapter"><a href="ch09.html#idp491968">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch09.html#idp483232">In Range</a><ol>
+
+
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch09.html#idp500016">Use with Color Images and the Hue Channel</a></li>
+<li data-type="sect2"><a href="ch09.html#idp501296">Parameters</a></li>
+<li data-type="sect2"><a href="ch09.html#idp505392">Related Material</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch10.html#idp512192">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch10.html#idp513040">Region of Interest</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch10.html#idp521456">Combined with Histogram Equalization</a></li>
+<li data-type="sect2"><a href="ch10.html#idp525584">Parameters</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch11.html#idp527184">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch11.html#idp524080">Threshold</a><ol>
+
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch11.html#idp535552">Related Functions</a></li>
+<li data-type="sect2"><a href="ch11.html#idp536720">Parameters</a></li>
+<li data-type="sect2"><a href="ch11.html#idp539904">Code</a></li>
+</ol></li>
+</ol></li><li data-type="part"><a href="part02.html#idp541856">Tracking</a></li><li data-type="chapter"><a href="ch12.html#idp543376">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch12.html#idp544384">Background Subtraction</a><ol>
+
+
+
+<li data-type="sect2"><a href="ch12.html#idp546224">Video Script</a></li>
+<li data-type="sect2"><a href="ch12.html#idp549072">Video Summary</a></li>
+<li data-type="sect2"><a href="ch12.html#idp550800">Quiz</a></li>
+<li data-type="sect2"><a href="ch12.html#idp565232">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch13.html#idp572000">Track All The Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch13.html#idp572880">Track the Brightest Point</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch13.html#idp575216">Video Summary</a></li>
+<li data-type="sect2"><a href="ch13.html#idp593520">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch14.html#idp604304">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch14.html#idp605936">Finding Contours and Lines</a><ol>
+
+
+<li data-type="sect2"><a href="ch14.html#idp606784">Video Script</a></li>
+<li data-type="sect2"><a href="ch14.html#idp609584">Video Summary</a></li>
+<li data-type="sect2"><a href="ch14.html#idp610800">Quiz</a></li>
+<li data-type="sect2"><a href="ch14.html#idp612304">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch15.html#idp620304">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch15.html#idp621280">Face Detection</a><ol>
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch15.html#idp624816">Video Summary</a></li>
+<li data-type="sect2"><a href="ch15.html#idp626096">The Politics of Face Detection</a></li>
+<li data-type="sect2"><a href="ch15.html#idp643600">Quiz</a></li>
+<li data-type="sect2"><a href="ch15.html#idp657184">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch16.html#idp674528">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch16.html#idp675408">Color Tracking in HSV Color Space</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch16.html#idp683024">Video Summary</a></li>
+<li data-type="sect2"><a href="ch16.html#idp688592">Quiz</a></li>
+<li data-type="sect2"><a href="ch16.html#idp696240">Code</a></li>
+</ol></li>
+</ol></li></ol></nav>
 	   <div class="navigation">
 	      <ul>
 	        <li class="prev"><a href="ch09.html">Previous</a></li>

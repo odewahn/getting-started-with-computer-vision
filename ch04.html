@@ -37,15 +37,15 @@
 	
       <div class="row-fluid down40">	
          <div class="span8">		
-            <section data-type="chapter" data-pdf-bookmark="Chapter 4. World of Filters" id="idp869264">
+            <section data-type="chapter" data-pdf-bookmark="Chapter 4. World of Filters" id="idp390304">
 <h1>World of Filters</h1>
 
-<section data-type="sect1" data-pdf-bookmark="Blur" id="idp877744">
+<section data-type="sect1" data-pdf-bookmark="Blur" id="idp395376">
 <h1>Blur</h1>
 
 <p><img src="http://gregborenstein.com/assets/opencv/blur_gray.gif" width="500px"/></p>
 <p>Blurring is a surprisingly useful operation in computer vision. It might seem like blurring an image would obscure exactly the information that you’re seeking to extract. To the contrary, blurring is similar to taking an average: it combines the value of each pixel with its neighbors. This is really useful for eliminating small variations or noise that might hurt the results of other operations like edge detection, contour finding, etc.</p>
-<section data-type="sect2" data-pdf-bookmark="Blur Strength and Direction - Convolutions and Kernels" id="idp880784">
+<section data-type="sect2" data-pdf-bookmark="Blur Strength and Direction - Convolutions and Kernels" id="idp404512">
 <h2>Blur Strength and Direction - Convolutions and Kernels</h2>
 
 <p>OpenCV’s <code>blur()</code> function uses a type of blur known as a “box blur”. In order to understand its effects -- and the various options available when applying a blur -- you’ll need to know a little bit about how OpenCV applies blurs and other image filters.</p>
@@ -71,13 +71,13 @@
 <p>producing something like this:</p>
 <p><img src="http://gregborenstein.com/assets/opencv/blur_vertical.gif" width="500px"/></p>
 </section>
-<section data-type="sect2" data-pdf-bookmark="Color Images" id="idp881728">
+<section data-type="sect2" data-pdf-bookmark="Color Images" id="idp405456">
 <h2>Color Images</h2>
 
 <p>It’s also worth noting that, unlike some other filters, <code>blur()</code> can be applied to color images:</p>
 <p><img src="http://gregborenstein.com/assets/opencv/blur_color.gif" width="500px"/></p>
 </section>
-<section data-type="sect2" data-pdf-bookmark="Parameters" id="idp910096">
+<section data-type="sect2" data-pdf-bookmark="Parameters" id="idp427696">
 <h2>Parameters</h2>
 
 <p>OpenCV for Processing’s <code>blur()</code> function has two different forms. Passing a single argument applies a simple box blur to the image with a kernel size determined by the argument you pass in.</p>
@@ -89,7 +89,7 @@
 <p>would apply a vertical blur: one pixel wide and five tall, just like we saw in the vertical kernel.</p>
 <p>Neither argument to this function can be zero, or an error will be raised. How can you construct a kernel that takes up zero rows or zero columns?</p>
 </section>
-<section data-type="sect2" data-pdf-bookmark="Related Functions" id="idp916448">
+<section data-type="sect2" data-pdf-bookmark="Related Functions" id="idp433936">
 <h2>Related Functions</h2>
 
 <ul>
@@ -115,7 +115,176 @@
 
 
 	   <h2>Key Themes</h2>
-              <nav data-type="toc" id="idp102448"/>
+              <nav data-type="toc" id="idp88192"><ol><li data-type="sect1"><a href="#idp4080">Introduction</a><ol>
+
+
+
+<li data-type="sect1"><a href="#idm2129264">World of Filters</a></li>
+<li data-type="sect1"><a href="#idp68736">Calibrate</a></li>
+<li data-type="sect1"><a href="#idp75152">Track All The Things</a></li>
+<li data-type="sect1"><a href="#idp77856">The Shape of Things</a></li>
+<li data-type="sect1"><a href="#idp356832">Training Program</a></li>
+<li data-type="sect1"><a href="#idp360208">Projects</a></li>
+</ol></li><li data-type="chapter"><a href="ch01.html#idp365088">Getting Started with Computer Vision</a><ol>
+
+
+
+
+
+<li data-type="sect1"><a href="ch01.html#idp372304">Contributions Welcome</a></li>
+<li data-type="sect1"><a href="ch01.html#idp370832">Format</a></li>
+</ol></li><li data-type="part"><a href="part01.html#idp375632">Filters</a></li><li data-type="chapter"><a href="ch02.html#idp378224">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch02.html#idp379424">Adaptive Threshold</a></li>
+<li data-type="sect1"><a href="ch02.html#idp380400">Related Functions</a></li>
+</ol></li><li data-type="chapter"><a href="ch03.html#idp385504">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch03.html#idp386272">Basic Output</a></li>
+</ol></li><li data-type="chapter"><a href="ch04.html#idp390304">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch04.html#idp395376">Blur</a><ol>
+
+
+
+
+<li data-type="sect2"><a href="ch04.html#idp404512">Blur Strength and Direction - Convolutions and Kernels</a></li>
+<li data-type="sect2"><a href="ch04.html#idp405456">Color Images</a></li>
+<li data-type="sect2"><a href="ch04.html#idp427696">Parameters</a></li>
+<li data-type="sect2"><a href="ch04.html#idp433936">Related Functions</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch05.html#idp438496">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch05.html#idp439440">Brightness and Contrast</a></li>
+</ol></li><li data-type="chapter"><a href="ch06.html#idp440704">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch06.html#idp441744">Dilate and Erode</a></li>
+</ol></li><li data-type="chapter"><a href="ch07.html#idp442160">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch07.html#idp460272">Edge Detection</a><ol>
+
+
+
+<li data-type="sect2"><a href="ch07.html#idp454640">Canny Edge Detection</a></li>
+<li data-type="sect2"><a href="ch07.html#idp456400">Sobel Edge Detection</a></li>
+<li data-type="sect2"><a href="ch07.html#idp468464">Scharr Edge Detection</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch08.html#idp469520">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch08.html#idp474624">Histogram Equalization</a></li>
+</ol></li><li data-type="chapter"><a href="ch09.html#idp491968">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch09.html#idp483232">In Range</a><ol>
+
+
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch09.html#idp500016">Use with Color Images and the Hue Channel</a></li>
+<li data-type="sect2"><a href="ch09.html#idp501296">Parameters</a></li>
+<li data-type="sect2"><a href="ch09.html#idp505392">Related Material</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch10.html#idp512192">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch10.html#idp513040">Region of Interest</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch10.html#idp521456">Combined with Histogram Equalization</a></li>
+<li data-type="sect2"><a href="ch10.html#idp525584">Parameters</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch11.html#idp527184">World of Filters</a><ol>
+
+
+<li data-type="sect1"><a href="ch11.html#idp524080">Threshold</a><ol>
+
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch11.html#idp535552">Related Functions</a></li>
+<li data-type="sect2"><a href="ch11.html#idp536720">Parameters</a></li>
+<li data-type="sect2"><a href="ch11.html#idp539904">Code</a></li>
+</ol></li>
+</ol></li><li data-type="part"><a href="part02.html#idp541856">Tracking</a></li><li data-type="chapter"><a href="ch12.html#idp543376">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch12.html#idp544384">Background Subtraction</a><ol>
+
+
+
+<li data-type="sect2"><a href="ch12.html#idp546224">Video Script</a></li>
+<li data-type="sect2"><a href="ch12.html#idp549072">Video Summary</a></li>
+<li data-type="sect2"><a href="ch12.html#idp550800">Quiz</a></li>
+<li data-type="sect2"><a href="ch12.html#idp565232">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch13.html#idp572000">Track All The Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch13.html#idp572880">Track the Brightest Point</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch13.html#idp575216">Video Summary</a></li>
+<li data-type="sect2"><a href="ch13.html#idp593520">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch14.html#idp604304">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch14.html#idp605936">Finding Contours and Lines</a><ol>
+
+
+<li data-type="sect2"><a href="ch14.html#idp606784">Video Script</a></li>
+<li data-type="sect2"><a href="ch14.html#idp609584">Video Summary</a></li>
+<li data-type="sect2"><a href="ch14.html#idp610800">Quiz</a></li>
+<li data-type="sect2"><a href="ch14.html#idp612304">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch15.html#idp620304">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch15.html#idp621280">Face Detection</a><ol>
+
+
+
+
+
+
+<li data-type="sect2"><a href="ch15.html#idp624816">Video Summary</a></li>
+<li data-type="sect2"><a href="ch15.html#idp626096">The Politics of Face Detection</a></li>
+<li data-type="sect2"><a href="ch15.html#idp643600">Quiz</a></li>
+<li data-type="sect2"><a href="ch15.html#idp657184">Code</a></li>
+</ol></li>
+</ol></li><li data-type="chapter"><a href="ch16.html#idp674528">Track All the Things</a><ol>
+
+
+<li data-type="sect1"><a href="ch16.html#idp675408">Color Tracking in HSV Color Space</a><ol>
+
+
+
+
+
+<li data-type="sect2"><a href="ch16.html#idp683024">Video Summary</a></li>
+<li data-type="sect2"><a href="ch16.html#idp688592">Quiz</a></li>
+<li data-type="sect2"><a href="ch16.html#idp696240">Code</a></li>
+</ol></li>
+</ol></li></ol></nav>
 	   <div class="navigation">
 	      <ul>
 	        <li class="prev"><a href="ch03.html">Previous</a></li>
