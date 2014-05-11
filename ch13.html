@@ -37,16 +37,16 @@
 	
       <div class="row-fluid down40">	
          <div class="span12">		
-            <section data-type="chapter" data-pdf-bookmark="Chapter 13. Track All The Things" id="idp799072">
+            <section data-type="chapter" data-pdf-bookmark="Chapter 13. Track All The Things" id="idp566752">
 <h1>Track All The Things</h1>
 
-<section data-type="sect1" data-pdf-bookmark="Track the Brightest Point" id="idp799952">
+<section data-type="sect1" data-pdf-bookmark="Track the Brightest Point" id="idp567632">
 <h1>Track the Brightest Point</h1>
 
 <p><em>Probably the single simplest way to track an object with OpenCV is based on brightness. Brightness tracking is highly sensitive to lighting conditions and other changes in the scene, but it can work effectively in situations where you have a lot of control over the environment. In this section, we’ll use OpenCV’s <code>max()</code> function to track the brightest point in an image. We’ll also see how a variation of brightness tracking, applied to the individual color channels of an image, can be used for a crude form of color tracking.</em></p>
 <iframe src="http://player.vimeo.com/video/69813654" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""> </iframe>
 
-<section data-type="sect2" data-pdf-bookmark="Video Summary" id="idp801968">
+<section data-type="sect2" data-pdf-bookmark="Video Summary" id="idp569984">
 <h2>Video Summary</h2>
 
 <ul>
@@ -63,7 +63,7 @@
 <li>This form of color tracking is very crude because of the limitations of RGB color space</li>
 <li>See the Color Tracking in HSV Color Space for a more robust technique for tracking color. </li>
 </ul>
-<section data-type="sect3" data-pdf-bookmark="Luma: A More Accurate Measure of Brightness" id="idp814528">
+<section data-type="sect3" data-pdf-bookmark="Luma: A More Accurate Measure of Brightness" id="idp572240">
 <h3>Luma: A More Accurate Measure of Brightness</h3>
 
 <p><a href="http://en.wikipedia.org/wiki/Luma_%28video%29">Luma</a> is a representation of the brightness of a pixel that matches human perception more accurately than its gray value, which is a simple average of the reg, green, and blue components. Luma can be calculated as an unequal combination of the red, green and blue components of the pixel according to the following formula: 0.2126*R + 0.7152*G + 0.0722*B. To use Luma for brightness tracking with our OpenCV image, you could iterate through the image and calculate the Luma value for each pixel, which would be slow. Or, you could use OpenCV’s <code><a href="http://docs.opencv.org/java/org/opencv/imgproc/Imgproc.html#cvtColor">Imgproc.cvtColor()</a></code> function in concert with <code>opencv.getBufferColor()</code> to convert the image to the <a href="https://en.wikipedia.org/wiki/Lab_color_space">LAB color space</a>, which includes Luma as one of its three channels.</p>
@@ -73,10 +73,10 @@
 <p>In practice, the grayscale average of RGB is usually used due to its convenience.</p>
 </section>
 </section>
-<section data-type="sect2" data-pdf-bookmark="Code" id="idp818880">
+<section data-type="sect2" data-pdf-bookmark="Code" id="idp585760">
 <h2>Code</h2>
 
-<section data-type="sect3" data-pdf-bookmark="Important Functions" id="idp820960">
+<section data-type="sect3" data-pdf-bookmark="Important Functions" id="idp588080">
 <h3>Important Functions</h3>
 
 <ul>
@@ -85,7 +85,7 @@
 <li><code>opencv.getBufferG()</code> - Get the green channel of the current image. Useful for passing to <code>opencv.setBufferGray()</code>.</li>
 </ul>
 </section>
-<section data-type="sect3" data-pdf-bookmark="Browse the Code" id="idp827856">
+<section data-type="sect3" data-pdf-bookmark="Browse the Code" id="idp595104">
 <h3>Browse the Code</h3>
 
 <ol>

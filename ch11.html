@@ -37,10 +37,10 @@
 	
       <div class="row-fluid down40">	
          <div class="span12">		
-            <section data-type="chapter" data-pdf-bookmark="Chapter 11. World of Filters" id="idp755504">
+            <section data-type="chapter" data-pdf-bookmark="Chapter 11. World of Filters" id="idp522768">
 <h1>World of Filters</h1>
 
-<section data-type="sect1" data-pdf-bookmark="Threshold" id="idp744816">
+<section data-type="sect1" data-pdf-bookmark="Threshold" id="idp513888">
 <h1>Threshold</h1>
 
 <p><img src="http://gregborenstein.com/assets/opencv/threshold.gif" width="400px"/></p>
@@ -48,7 +48,7 @@
 <p>Many super-useful OpenCV functions require a binary image, like <a href="https://github.com/atduskgreg/opencv-processing-book/blob/master/book/tracking/contours_and_lines.md">contour finding</a>.</p>
 <p>In the animated GIF above, we’re applying a threshold at 50 to a scanned frame of film from <a href="https://github.com/atduskgreg/opencv-processing-book/blob/master/book/projects/kinograph_1.md">the Kinograph project</a>. When we threshold our scan, the subtle grays that make up the area with the sprocket holes on the right of the frame disappear completely into white. And the black bars of the frame separators become even more prominent.</p>
 <p>Thresholding is not limited to grayscale images. You can apply it to color images and individual color channels as well (see the code samples below).</p>
-<section data-type="sect2" data-pdf-bookmark="Related Functions" id="idp761152">
+<section data-type="sect2" data-pdf-bookmark="Related Functions" id="idp527968">
 <h2>Related Functions</h2>
 
 <ul>
@@ -56,14 +56,14 @@
 <li><a href="https://github.com/atduskgreg/opencv-processing-book/blob/master/book/filters/in_range.md">inRange()</a></li>
 </ul>
 </section>
-<section data-type="sect2" data-pdf-bookmark="Parameters" id="idp765632">
+<section data-type="sect2" data-pdf-bookmark="Parameters" id="idp532464">
 <h2>Parameters</h2>
 
 <p>The <code>threshold()</code> function takes a single argument: an integer value from 0-255:</p>
 <pre data-type="programlisting">opencv.threshold(50);</pre>
 <p>This value represents a value of gray (0 being black and 255 white). After <code>threshold()</code> is applied, pixels below this value will be black and those above it will be white.</p>
 </section>
-<section data-type="sect2" data-pdf-bookmark="Code" id="idp768480">
+<section data-type="sect2" data-pdf-bookmark="Code" id="idp535536">
 <h2>Code</h2>
 
 </section>
