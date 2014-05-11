@@ -14,7 +14,8 @@
     "book/filters/region_of_interest.md",
     "book/filters/threshold.md",
     "book/tracking-part.html",
-    "book/tracking/background_subtraction.md"
+    "book/tracking/background_subtraction.md",
+    "book/tracking/brightest_point.md"
   ],
   "formats": {
     "pdf": {
