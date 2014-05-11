@@ -1,6 +1,7 @@
 {
   "branch": "master",
   "files": [
+    "book/toc.md",
     "README.md",
     "book/filters-part.html",
     "book/filters/adaptive_threshold.md",
