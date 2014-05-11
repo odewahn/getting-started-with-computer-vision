@@ -3,7 +3,6 @@
   "files": [
     "book/toc.md",
     "README.md",
-    "book/filters-part.html",
     "book/filters/adaptive_threshold.md",
     "book/filters/basic_output.md",
     "book/filters/blur.md",
@@ -14,7 +13,6 @@
     "book/filters/in_range.md",
     "book/filters/region_of_interest.md",
     "book/filters/threshold.md",
-    "book/tracking-part.html",
     "book/tracking/background_subtraction.md",
     "book/tracking/brightest_point.md",
     "book/tracking/contours_and_lines.md",
